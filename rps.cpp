@@ -1,7 +1,5 @@
-#ifndef RPS_H
-#define RPS_H
-
 #include <iostream>
+#include "rps.h"
 
 Tool::Tool(int s, char t) {
 	int strength = s;
@@ -17,5 +15,10 @@ Paper::Paper(int s):Tool(s, 'p') {
 Scissors::Scissors(int s):Tool(s, 's') {
 }
 
+void Tool::setStrength(int s) {
+	strength = s;
+}
 
-#endif
+int Tool::getStrength() {
+	return strength;
+}

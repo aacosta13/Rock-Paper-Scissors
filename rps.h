@@ -1,5 +1,6 @@
+#ifndef RPS_H
+#define RPS_H
 #include <iostream>
-using namespace std;
 
 class Tool {
 protected:
@@ -7,22 +8,26 @@ protected:
 	char type;
 public:
 	Tool(int, char);
-	int getStrenght(int);
+	int getStrength();
 	void setStrength(int);
-	bool fight(Tool);
 };
 
 class Rock:public Tool {
 public:
 	Rock(int);
+	bool fight(Tool);
 };
 
 class Paper:public Tool {
 public:
 	Paper(int);
+	bool fight(Tool);	
 };
 
 class Scissors:public Tool {
 public:
 	Scissors(int);
+	bool fight(Tool);
 };
+
+#endif
