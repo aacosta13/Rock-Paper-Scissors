@@ -30,4 +30,6 @@ public:
 	bool fight(Tool);
 };
 
+void timeDelay(time_t, time_t);
+
 #endif

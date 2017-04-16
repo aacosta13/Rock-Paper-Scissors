@@ -22,3 +22,8 @@ void Tool::setStrength(int s) {
 int Tool::getStrength() {
 	return strength;
 }
+
+void timeDelay(time_t start, time_t end) {
+	time(&start);
+	do time(&end); while(difftime(end, start) <= 2);
+}
