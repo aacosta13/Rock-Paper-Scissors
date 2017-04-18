@@ -6,7 +6,8 @@ protected:
 	int strength;
 	char type;
 public:
-	Tool();
+	Tool(int, char);
+	int getStrenght(int);
 	void setStrength(int);
 	bool fight(Tool);
 };
