@@ -9,7 +9,8 @@ int main() {
 	Scissors scissors(2);
 	Paper paper(1);
 	char choice, enemy, userResponse;
-	int randStrength, enemyStrength;
+	int randStrength, enemyWeapon, enemyStrength;
+	int weaponConvert;
 	time_t start, end;
 
 	do {
@@ -22,11 +23,29 @@ int main() {
 		randStrength = rand() % 10 + 1;
 		cout << "Your strength is: " << randStrength << "." << endl;
 
-		cout << "\nThe computer shall now choose their weapon." << endl;
-		cin >> enemy;
+		cout << "\nThe computer will now have their weapon and strength"
+			 <<	" randomly chosen." << endl;
+		srand(time(NULL));
+		enemyWeapon = rand() % 2 + 0; 
+		if (enemyWeapon == 0) {enemy = 'r';}
+		else if (enemyWeapon == 1) {enemy = 'p';}
+		else {enemy = 's';}
+		srand(time(NULL));
+		enemyStrength = rand() % 10 + 1;
 
-		
-	
+		Tool foe(enemyStrength, enemy);
+		foe.setStrength(enemyStrength);
+		foe.setType(enemy);
+
+		if (choice == 'r') {
+			rock.setStrength(randStrength);
+			rock.fight(foe);
+			if (rock.fight(foe) == true)
+				{cout << "You win!\n";}
+			else
+				{cout << "You lose!\n";}
+		}
+
 
 		cout << "Want to play again? (Y/N) \n";
 		cin >> userResponse;

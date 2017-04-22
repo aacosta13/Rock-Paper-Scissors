@@ -10,6 +10,8 @@ public:
 	Tool(int, char);
 	int getStrength();
 	void setStrength(int);
+	char getType();
+	void setType(char);
 };
 
 class Rock:public Tool {
