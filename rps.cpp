@@ -43,7 +43,6 @@ bool Rock::fight(Tool foe) {
 	int randStrength, userStrength, foeStrength;
 	foeStrength = foe.getStrength();
 	time_t start, end;
-	Rock rock(1);
 	
 	cout << "\nYour strength will now be randomly chosen from 1-10." << endl;
 	cout << "Calculating..." << endl;
@@ -51,16 +50,86 @@ bool Rock::fight(Tool foe) {
 	srand(time(NULL));
 	randStrength = rand() % 10 + 1;
 	cout << "Your strength is: " << randStrength << "." << endl;
-	rock.setStrength(randStrength);
 
 	if (foe.getType() == 'r') {return false;}
 
 	else if (foe.getType() == 's') {
-		
-		if (userStrength > foeStrength) {
+		int newStrength = randStrength * 2;
+		if (newStrength > foeStrength) {
+			return true;
+		}
+		else {return false;}
+	}
+
+	else if (foe.getType() == 'p') {
+		int newStrength = randStrength / 2;
+		if (newStrength > foeStrength) {
 			return true;
 		}
 		else {return false;}
 	}
 }
+
+bool Paper::fight(Tool foe) {
+	int randStrength, userStrength, foeStrength;
+	foeStrength = foe.getStrength();
+	time_t start, end;
+	
+	cout << "\nYour strength will now be randomly chosen from 1-10." << endl;
+	cout << "Calculating..." << endl;
+	timeDelay(start, end);
+	srand(time(NULL));
+	randStrength = rand() % 10 + 1;
+	cout << "Your strength is: " << randStrength << "." << endl;
+
+	if (foe.getType() == 'p') {return false;}
+
+	else if (foe.getType() == 'r') {
+		int newStrength = randStrength * 2;
+		if (newStrength > foeStrength) {
+			return true;
+		}
+		else {return false;}
+	}
+
+	else if (foe.getType() == 's') {
+		int newStrength = randStrength / 2;
+		if (newStrength > foeStrength) {
+			return true;
+		}
+		else {return false;}
+	}
+}
+
+bool Scissors::fight(Tool foe) {
+	int randStrength, userStrength, foeStrength;
+	foeStrength = foe.getStrength();
+	time_t start, end;
+	
+	cout << "\nYour strength will now be randomly chosen from 1-10." << endl;
+	cout << "Calculating..." << endl;
+	timeDelay(start, end);
+	srand(time(NULL));
+	randStrength = rand() % 10 + 1;
+	cout << "Your strength is: " << randStrength << "." << endl;
+
+	if (foe.getType() == 's') {return false;}
+
+	else if (foe.getType() == 'p') {
+		int newStrength = randStrength * 2;
+		if (newStrength > foeStrength) {
+			return true;
+		}
+		else {return false;}
+	}
+
+	else if (foe.getType() == 'r') {
+		int newStrength = randStrength / 2;
+		if (newStrength > foeStrength) {
+			return true;
+		}
+		else {return false;}
+	}
+}
+
 
