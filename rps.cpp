@@ -1,5 +1,8 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include "rps.h"
+using namespace std;
 
 Tool::Tool(int s, char t) {
 	int strength = s;
@@ -37,20 +40,24 @@ void timeDelay(time_t start, time_t end) {
 }
 
 bool Rock::fight(Tool foe) {
-	int newStrength;
+	int randStrength, userStrength, foeStrength;
+	foeStrength = foe.getStrength();
+	time_t start, end;
+	Rock rock(1);
+	
+	cout << "\nYour strength will now be randomly chosen from 1-10." << endl;
+	cout << "Calculating..." << endl;
+	timeDelay(start, end);
+	srand(time(NULL));
+	randStrength = rand() % 10 + 1;
+	cout << "Your strength is: " << randStrength << "." << endl;
+	rock.setStrength(randStrength);
+
 	if (foe.getType() == 'r') {return false;}
 
 	else if (foe.getType() == 's') {
-		newStrength = (rock.getStrength * 2);
-		if (newStrength > foe.getStrength()) {
-			return true;
-		}
-		else {return false;}
-	}
-
-	else if (foe.getType() == 'p') {
-		newStrength = (rock.getStrength / 2);
-		if (newStrength > foe.getStrength()) {
+		
+		if (userStrength > foeStrength) {
 			return true;
 		}
 		else {return false;}

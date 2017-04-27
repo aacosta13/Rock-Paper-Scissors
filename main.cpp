@@ -9,22 +9,20 @@ int main() {
 	Scissors scissors(2);
 	Paper paper(1);
 	char choice, enemy, userResponse;
-	int randStrength, enemyWeapon, enemyStrength;
+	int enemyWeapon, enemyStrength;
 	int weaponConvert;
 	time_t start, end;
+	bool outcome;
 
 	do {
-		cout << "Choose your weapon (r, p, s): ";
+		cout << "\nChoose your weapon (r, p, s). Strength will be chosen later. ";
 		cin >> choice;
-		cout << "\nYour strength will now be randomly chosen from 1-10." << endl;
-		cout << "Calculating..." << endl;
-		timeDelay(start, end);	
-		srand(time(NULL));
-		randStrength = rand() % 10 + 1;
-		cout << "Your strength is: " << randStrength << "." << endl;
-
-		cout << "\nThe computer will now have their weapon and strength"
+	
+		cout << "The computer will now have their weapon and strength"
 			 <<	" randomly chosen." << endl;
+		cout << "Calculating..." << endl;
+		timeDelay(start, end);
+
 		srand(time(NULL));
 		enemyWeapon = rand() % 2 + 0; 
 		if (enemyWeapon == 0) {enemy = 'r';}
@@ -32,15 +30,15 @@ int main() {
 		else {enemy = 's';}
 		srand(time(NULL));
 		enemyStrength = rand() % 10 + 1;
+		cout << "The computer chose " << enemyWeapon << "and their strength is "
+			 << enemyStrength << "." << endl;
 
 		Tool foe(enemyStrength, enemy);
-		foe.setStrength(enemyStrength);
 		foe.setType(enemy);
 
 		if (choice == 'r') {
-			rock.setStrength(randStrength);
-			rock.fight(foe);
-			if (rock.fight(foe) == true)
+			outcome = rock.fight(foe);
+			if (true)
 				{cout << "You win!\n";}
 			else
 				{cout << "You lose!\n";}
