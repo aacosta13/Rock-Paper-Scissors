@@ -18,7 +18,7 @@ int main() {
 		cin >> choice;
 	
 		cout << "The computer will now have their weapon and strength"
-			 <<	" randomly chosen." << endl;
+		     <<	" randomly chosen." << endl;
 		cout << "Calculating..." << endl;
 		timeDelay(start, end);
 
@@ -30,7 +30,7 @@ int main() {
 		srand(time(NULL));
 		enemyStrength = rand() % 10 + 1;
 		cout << "The computer chose " << enemy << " and their strength is "
-			 << enemyStrength << "." << endl;
+		     << enemyStrength << "." << endl;
 
 		Tool foe(enemyStrength, enemy);
 		foe.setStrength(enemyStrength);
@@ -63,6 +63,5 @@ int main() {
 		cout << "Want to play again? (Y/N) \n";
 		cin >> userResponse;
 	} while (userResponse == 'Y' || userResponse == 'y');
-
 	return 0;
 }
